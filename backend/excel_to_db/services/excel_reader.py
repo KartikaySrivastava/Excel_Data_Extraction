@@ -18,7 +18,7 @@ def infer_dtype(series: pd.Series) -> str:
     if lowered.isin(["true", "false", "yes", "no", "0", "1"]).all():
         return "boolean"
 
-    parsed = pd.to_datetime(s, errors="coerce")
+    parsed = pd.to_datetime(s, format="%Y-%m-%d", errors="coerce")
     if parsed.notna().sum() / max(1, len(s)) > 0.7:
         times = parsed.dt.time
         zero_time = pd.Timestamp(0).time()
