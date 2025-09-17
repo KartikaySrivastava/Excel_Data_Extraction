@@ -43,7 +43,6 @@ def cast_value(value, field_type="CharField"):
 def upload_data(model_name: str, df: pd.DataFrame, batch_size=5000):
     Model = apps.get_model("excel_to_db", model_name)
 
-    # Remove unnamed columns from DataFrame
     df = df.loc[:, ~df.columns.str.startswith("Unnamed")]
 
     df.columns = (
