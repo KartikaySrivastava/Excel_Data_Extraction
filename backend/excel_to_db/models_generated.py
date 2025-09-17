@@ -1,7 +1,6 @@
 from django.db import models
 
 class ExcelData(models.Model):
-    # auto-generated model from Excel
     user_id = models.IntegerField(null=True, blank=True)
     email = models.CharField(max_length=255, null=True, blank=True)
     name = models.CharField(max_length=255, null=True, blank=True)
